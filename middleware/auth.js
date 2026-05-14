@@ -21,4 +21,4 @@ const authMiddleware = (req,res,next) => {
     }
 }
 
-export default Router
+export default Router;

@@ -15,11 +15,11 @@ app.get("/", (req, res) => {
 });
 
 // products API
-import productRoutes from "./routes/Product.js"
-import orderRoutes from "./routes/Order.js"
-import userRoutes from "./routes/User.js"
-import authMiddleware from "./routes/auth.js"
-import adminMiddleware from "./routes/admin.js"
+import productRoutes from "./models/Product.js"
+import orderRoutes from "./models/Order.js"
+import userRoutes from "./models/User.js"
+import authMiddleware from "./middleware/auth.js"
+import adminMiddleware from "./middleware/admin.js"
 
 app.post("/products", authMiddleware, adminMiddleware, async (req, res) => {
 
@@ -143,7 +143,7 @@ app.post("/login", async (req, res) => {
 
     const token = jwt.sign(
       {userId: user._id,email: user.email, role: user.role},
-      "mysecretkey",
+      process.env.JWT_SECRET,
       {expiresIn: "1D"}
     )
     res.json({user, token});
@@ -152,9 +152,10 @@ app.post("/login", async (req, res) => {
   }
 });
 
+const PORT = process.env.PORT || 5000
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+app.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`);
 });
 
 //mogodb connection
