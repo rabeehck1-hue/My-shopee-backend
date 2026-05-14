@@ -19,7 +19,7 @@ import productRoutes from "./routes/Product.js"
 import orderRoutes from "./routes/Order.js"
 import userRoutes from "./routes/User.js"
 import authMiddleware from "./routes/auth.js"
-import authMiddleware from "./routes/admin.js"
+import adminMiddleware from "./routes/admin.js"
 
 app.post("/products", authMiddleware, adminMiddleware, async (req, res) => {
 
