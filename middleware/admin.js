@@ -1,0 +1,15 @@
+const jwt = require("jsonwebtoken")
+
+const adminMiddleware = (req, res, next) => {
+    try{
+        if (req.user.role !== "admin") {
+            return res.status(403).json({error: "Acces denied"})
+        }
+
+        next()
+    }catch(err){
+        res.status(401).json({error: "invalid token"})
+    }
+}
+
+module.exports = adminMiddleware
