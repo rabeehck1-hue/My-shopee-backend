@@ -1,3 +1,6 @@
+import dotenv from"dotenv";
+dotenv.config();
+
 const express = require("express");
 const cors = require("cors");
 
@@ -155,10 +158,6 @@ app.listen(5000, () => {
 });
 
 //mogodb connection
-
-import dotenv from"dotenv";
-dotenv.config();
-
 
 const mongoose = require("mongoose");
 
