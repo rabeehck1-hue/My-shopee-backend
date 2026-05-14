@@ -1,4 +1,3 @@
-import { Router } from "express";
 import jwt from "jsonwebtoken";
 
 const adminMiddleware = (req, res, next) => {
@@ -13,4 +12,4 @@ const adminMiddleware = (req, res, next) => {
     }
 }
 
-export default Router
+export default mongoose.model("admin", adminMiddleware);

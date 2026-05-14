@@ -1,4 +1,3 @@
-import { Router } from "express";
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
@@ -11,4 +10,4 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-export default Router
+export default mongoose.model("User", userSchema);

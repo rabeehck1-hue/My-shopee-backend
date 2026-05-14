@@ -1,4 +1,3 @@
-import { Router } from "express";
 import mongoose from "mongoose";
 
 const authMiddleware = (req,res,next) => {
@@ -21,4 +20,4 @@ const authMiddleware = (req,res,next) => {
     }
 }
 
-export default Router;
+export default mongoose.model("auth", authMiddleware);
