@@ -15,9 +15,9 @@ app.get("/", (req, res) => {
 });
 
 // products API
-import productRoutes from "./models/Product.js"
-import orderRoutes from "./models/Order.js"
-import userRoutes from "./models/User.js"
+import products from "./models/Product.js"
+import orders from "./models/Order.js"
+import user from "./models/User.js"
 import authMiddleware from "./middleware/auth.js"
 import adminMiddleware from "./middleware/admin.js"
 
