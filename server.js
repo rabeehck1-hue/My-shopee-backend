@@ -40,9 +40,18 @@ app.post("/products", authMiddleware, adminMiddleware, async (req, res) => {
   });
 
 app.get("/products", async (req, res) => {
- const products = await Product.find();
-  res.json(products);
-});  
+  try {
+    const products = await Product.find();
+
+    res.json(products);
+  } catch (err) {
+    console.log(err);
+
+    res.status(500).json({
+      error: err.message,
+    });
+  }
+});
 
 app.delete("/products/:id", authMiddleware, async (req,res) => 
   {
