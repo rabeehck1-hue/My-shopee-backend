@@ -12,4 +12,4 @@ const adminMiddleware = (req, res, next) => {
     }
 }
 
-export default mongoose.model("admin", adminMiddleware);
+export default adminMiddleware;

@@ -20,4 +20,4 @@ const authMiddleware = (req,res,next) => {
     }
 }
 
-export default mongoose.model("auth", authMiddleware);
+export default authMiddleware;
