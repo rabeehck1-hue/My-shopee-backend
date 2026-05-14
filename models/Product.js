@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+import { Router } from "express";
+import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
   name: String,
@@ -7,4 +8,4 @@ const productSchema = new mongoose.Schema({
   image: String
 });
 
-module.exports = mongoose.model("Product", productSchema);
+export default Router;

@@ -1,8 +1,8 @@
 import dotenv from"dotenv";
 dotenv.config();
 
-const express = require("express");
-const cors = require("cors");
+import express from "express";
+import cors from "cors";
 
 const app = express();
 
@@ -15,11 +15,11 @@ app.get("/", (req, res) => {
 });
 
 // products API
-const Product = require("./models/Product");
-const Order = require("./models/Order");
-const User = require("./models/User");
-const authMiddleware = require("./middleware/auth")
-const adminMiddleware = require("./middleware/admin")
+import productRoutes from "./routes/Product.js"
+import orderRoutes from "./routes/Order.js"
+import userRoutes from "./routes/User.js"
+import authMiddleware from "./routes/auth.js"
+import authMiddleware from "./routes/admin.js"
 
 app.post("/products", authMiddleware, adminMiddleware, async (req, res) => {
 
@@ -98,7 +98,7 @@ app.put("/products/:id", async (req,res) =>
   res.json(orders);
 });  
 
-const bcrypt = require ("bcrypt")
+import bcrypt from "bcryptjs";
 
 
 app.post("/signup", async (req, res) => {
@@ -119,7 +119,7 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-const jwt = require("jsonwebtoken")
+import jwt from "jsonwebtoken";
 
 
 app.post("/login", async (req, res) => {
@@ -159,7 +159,7 @@ app.listen(5000, () => {
 
 //mogodb connection
 
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("DB Connected"))

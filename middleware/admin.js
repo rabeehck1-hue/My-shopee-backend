@@ -1,4 +1,5 @@
-const jwt = require("jsonwebtoken")
+import { Router } from "express";
+import jwt from "jsonwebtoken";
 
 const adminMiddleware = (req, res, next) => {
     try{
@@ -12,4 +13,4 @@ const adminMiddleware = (req, res, next) => {
     }
 }
 
-module.exports = adminMiddleware
+export default Router

@@ -1,4 +1,5 @@
-const jwt = require ("jsonwebtoken")
+import { Router } from "express";
+import mongoose from "mongoose";
 
 const authMiddleware = (req,res,next) => {
     try{
@@ -20,4 +21,4 @@ const authMiddleware = (req,res,next) => {
     }
 }
 
-module.exports = authMiddleware
+export default Router

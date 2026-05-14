@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+import { Router } from "express";
+import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
   name: String,
@@ -10,4 +11,4 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model("User", userSchema);
+export default Router

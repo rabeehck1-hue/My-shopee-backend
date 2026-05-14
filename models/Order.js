@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+import { Router } from "express";
+import mongoose from "mongoose";
 
 
 
@@ -12,4 +13,4 @@ const orderSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model("Order", orderSchema);
+export default Router
