@@ -161,18 +161,25 @@ app.post("/login", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 5000
 
-app.listen(PORT, () => {
-  console.log(`Server running on ${PORT}`);
-});
 
 //mogodb connection
 
 import mongoose from "mongoose";
 
+const PORT = process.env.PORT || 5000
+
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("DB Connected"))
-  .catch((err) => console.log(err));
+.then(() => {
+  console.log("DB Connected");
+
+  app.listen(PORT, () => {
+    console.log(`Server running on ${PORT}`);
+  });
+
+})
+.catch((err) => {
+  console.log("DB ERROR:", err);
+});
 
   
